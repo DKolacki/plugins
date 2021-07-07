@@ -271,11 +271,13 @@
   result(nil);
 }
 
-- (void)retrieveReceiptData:(FlutterMethodCall *)call result:(FlutterResult)result {
+(void)retrieveReceiptData:(FlutterMethodCall *)call result:(FlutterResult)result {
   FlutterError *error = nil;
   NSString *receiptData = [self.receiptManager retrieveReceiptWithError:&error];
   if (error) {
-    result(error);
+      result([FlutterError errorWithCode:@"Code: Could not retrieve receipt data"
+                                 message:@"Message: Could not retrieve receipt data"
+                                 details:@"Details: Could not retrieve receipt data"]);
     return;
   }
   result(receiptData);
