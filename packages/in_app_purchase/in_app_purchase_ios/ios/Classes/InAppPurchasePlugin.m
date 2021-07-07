@@ -271,6 +271,7 @@
   result(nil);
 }
 
+//temporary crash fix
 - (void)retrieveReceiptData:(FlutterMethodCall *)call result:(FlutterResult)result {
   FlutterError *error = nil;
   NSString *receiptData = [self.receiptManager retrieveReceiptWithError:&error];
